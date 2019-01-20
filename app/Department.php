@@ -14,4 +14,15 @@ class Department extends Model
     }
 
 
+    public function isBigDepartment(){
+
+            if ($this->employees->count() > 10){
+
+                return true;
+            }
+
+    return false;
+    }
+
+
 }
