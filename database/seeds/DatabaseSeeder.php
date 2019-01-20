@@ -14,10 +14,7 @@ class DatabaseSeeder extends Seeder
     {
          $this->call(DepartmentSeeder::class);
 
-
-
         //factory(App\Department::class,10)->create();
-
        
     }
 }
