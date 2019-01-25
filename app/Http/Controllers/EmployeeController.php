@@ -14,7 +14,9 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        //
+        $emps = Employee::all();
+
+        return view('employees.index')->with('employees', $emps);
     }
 
     /**

@@ -1,5 +1,7 @@
 <?php
 
+use App\Employee;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,6 +13,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::resource('employees','EmployeeController');
+
+// Auth::routes();
+
+// Route::get('/home', 'HomeController@index')->name('home');

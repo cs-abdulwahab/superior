@@ -16,6 +16,9 @@ class DatabaseSeeder extends Seeder
 
         //factory(App\Department::class,10)->create();
        
+
+        factory(Employee::class,10)->create();
+
     }
 }
 
