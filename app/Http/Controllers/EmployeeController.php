@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Employee;
+use App\Department;
 use Illuminate\Http\Request;
 
 class EmployeeController extends Controller
@@ -26,7 +27,7 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        //
+        return view ('employees.create');
     }
 
     /**
@@ -37,7 +38,14 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $name = $request->name;
+        $location = $request->location;
+
+        Department::create(['name'=>$name , 'location'=>$location]);
+    
+        return redirect()->back();
+    
     }
 
     /**
