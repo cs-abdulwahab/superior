@@ -18,3 +18,5 @@ Route::resource('employees','EmployeeController');
 // Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/import','EmployeeController@import')->name('emp-import');

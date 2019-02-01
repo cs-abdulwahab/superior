@@ -9,7 +9,7 @@
 <body>
 Showing All Employees in index file
 <table class="table">
-    <thead>
+    <thead style="background-color:red;">
         <tr>
             <th> ID </th>
             <th> NAME </th>

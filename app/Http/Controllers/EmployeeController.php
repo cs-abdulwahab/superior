@@ -6,6 +6,9 @@ use App\Employee;
 use App\Department;
 use Illuminate\Http\Request;
 
+use App\Imports\EmployeesImport;
+use Maatwebsite\Excel\Facades\Excel;
+
 class EmployeeController extends Controller
 {
     /**
@@ -92,4 +95,11 @@ class EmployeeController extends Controller
     {
         //
     }
+
+    public  function import() 
+    {
+         Excel::import(new EmployeesImport, 'employees.xlsx');
+       return   redirect()->home();
+    }
+
 }
