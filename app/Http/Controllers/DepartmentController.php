@@ -14,7 +14,9 @@ class DepartmentController extends Controller
      */
     public function index()
     {
-        //
+        $departments = Department::orderBy('name')->paginate(10);
+
+        return view('departments.index')->with('departments', $departments);
     }
 
     /**
@@ -24,7 +26,7 @@ class DepartmentController extends Controller
      */
     public function create()
     {
-        //
+        return view('departments.create');
     }
 
     /**
@@ -35,7 +37,19 @@ class DepartmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $dept = Department::create($request->all());
+    // if(!$dept->exists)
+    // return redirect(route('departments.index') )->with('status','fail');
+    // else
+
+
+        session()->put('key', '<b>sd</b>');
+  
+//    $value = $request->session()->get('key', 'default');
+
+
+        return redirect(route('departments.index'))->with('status', 'success')->withInput($request->all());
+
     }
 
     /**
@@ -57,7 +71,7 @@ class DepartmentController extends Controller
      */
     public function edit(Department $department)
     {
-        //
+        return view('departments.edit')->with('department', $department);
     }
 
     /**
@@ -69,7 +83,8 @@ class DepartmentController extends Controller
      */
     public function update(Request $request, Department $department)
     {
-        //
+        $department->update($request->all());
+        return redirect(route('departments.index'))->with('status', 'updated successfully')->withInput($request->all());
     }
 
     /**
@@ -80,6 +95,7 @@ class DepartmentController extends Controller
      */
     public function destroy(Department $department)
     {
-        //
+        Department::destroy($department->id);
+        return redirect()->route('departments.index')->with('status', 'successfully deleted');
     }
 }

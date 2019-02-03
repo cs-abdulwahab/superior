@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Employee;
+use App\Department;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -17,6 +18,13 @@ class EmployeeController extends Controller
     {
         return Employee::all();
     }
+
+    public function getEmployeesBy(Department $department)
+    {
+
+        return response($department->employees, 200);
+    }
+
 
     /**
      * Store a newly created resource in storage.

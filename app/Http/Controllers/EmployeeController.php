@@ -20,7 +20,7 @@ class EmployeeController extends Controller
     {
         $emps = Employee::all();
 
-        return view('employees.index')->with('employees', $emps);
+        return view('employees.index')->with('employees', $emps)->with('departments',Department::all());
     }
 
     /**

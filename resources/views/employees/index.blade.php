@@ -1,46 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Super Web Page</title>
-</head>
-<body>
-Showing All Employees in index file
-<table class="table">
-    <thead style="background-color:red;">
-        <tr>
-            <th> ID </th>
-            <th> NAME </th>
-          
-        </tr>
-    </thead>
-    <tbody>
+@extends('layouts.master') 
+@section('main-content')
 
-        Total Number of Employees : {{ count($employees) }}
-                
-        {{--  @for($i = 0 ; $i< count($employees) ; $i++)
-            <tr> 
-                <td> 1 </td>
-                <td> name 1</td>
-            </tr>
-        @endfor  --}}
+<div class="container">
+    <div class="row">
 
+        <div class="col-2">
+            Department
+            <select name="departments" id="departments">
+                    <option >Choose department</option>
+                @foreach($departments as $department)
+                    <option value={{$department->id}}>{{$department->name}}</option>
+                @endforeach
 
-        @foreach($employees as $employee )
-            <tr> 
-                <td> {{  $employee->id }} </td>
-                <td>{{ $employee->name }}</td>
-            </tr>
-        @endforeach
-        
-    </tbody>
-</table>
-        
+            </select>
 
+        </div>
 
+        <div class="col">
 
+            Employees
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Name</th>
+                        <th>Phone</th>
+                    </tr>
+                </thead>
+                <tbody>
 
-</body>
-</html>
+                    @foreach($employees as $employee)
+
+                    <tr>
+                        <td scope="row">{{$loop->index}}</td>
+                        <td>{{$employee->name}}</td>
+                        <td>{{$employee->phone}}</td>
+                    </tr>
+                    @endforeach
+
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+@endsection

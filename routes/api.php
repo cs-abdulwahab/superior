@@ -19,3 +19,5 @@ use Illuminate\Http\Request;
 
 
 Route::apiResource('employees','Api\EmployeeController')->except(['employees.create','employees.edit']);
+
+Route::get('getEmployeesBy/{department}','Api\EmployeeController@getEmployeesBy')->name('employees.getEmployeesBy');

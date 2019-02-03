@@ -20,3 +20,21 @@ Route::resource('employees','EmployeeController');
 // Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/import','EmployeeController@import')->name('emp-import');
+
+Route::get('/page1',function(){
+
+return view('page1');
+});
+
+
+Route::resource('departments','DepartmentController');
+
+
+Route::get('/page2',function(){
+
+    return view('page2');
+    });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
