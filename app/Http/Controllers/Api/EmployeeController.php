@@ -21,7 +21,6 @@ class EmployeeController extends Controller
 
     public function getEmployeesBy(Department $department)
     {
-
         return response($department->employees, 200);
     }
 
