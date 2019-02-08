@@ -42,7 +42,7 @@
                     @foreach($departments as $department)
                     <tr>
                         <td>{{ $loop->index+1 }}</td>
-                        <td scope="row"> {{$department->name}}</td>
+                        <td scope="row"> {!!$department->name!!}</td>
                         <td>{!!$department->location!!}</td>
                         <td class="d-flex justify-content-end">
 
